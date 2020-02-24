@@ -16,4 +16,4 @@ Voter.on('line', function(line) {
     history: columns[3]
 
   });
-)};
+});
