@@ -5,8 +5,8 @@ const Voter = require('./schema');
 connect();
 const fs = require('fs');
 const readline = readline.createInterface({
-  input: fs.createReadStream('voters.csv');
-})
+  input: fs.createReadStream('voters.csv')
+});
 const arr = [];
 
 file.on('line', function(line){
