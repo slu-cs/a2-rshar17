@@ -8,17 +8,17 @@ const file = readline.createInterface({
 });
 connect();
 
-const arr = [];
+const votes = [];
 
 file.on('line', function(line){
   const row = line.split(',');
-  const voterone = new Voter({
+  votes.push(new Voter({
    firstname:  row[0],
    lastname:  row[1],
    zipcode:  row[2],
    history:  row[3]
- });
- arr.push(voterone);
+ }));
+
 });
 
 
@@ -30,7 +30,7 @@ file.on('line', function(line){
 // Reset the data
 file.on('close', function() {
 mongoose.connection.dropDatabase()
-  .then(() => Promise.all(arr.map(p => p.save())))
+  .then(() => Promise.all(votes.map(p => p.save())))
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
