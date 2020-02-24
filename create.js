@@ -5,22 +5,21 @@ const Voter = require('./schema');
 connect();
 
 const arr = [];
-
+const createdvalue = [];
 //this was done using 1
 const rows = Voter.split('\n');
 const data = rows.map(b => b.split(','));
 
-for(const rows of rows)
+for(const rows of data)
 {
-  for(const data of datas)
-  {
-    arr.push({
+
+    createdvalue = new Voter({
       'firstname': data[0];
       'lastname': data[1];
       'zipcode': data[2];
       'history': data[3];
     })
-  }
+    arr.push(createdvalue[]);
 
 }
 
