@@ -18,7 +18,6 @@ file.on('line', function(line){
    zipcode:  row[2],
    history:  row[3]
  });
- console.log(voterone);
  arr.push(voterone);
 });
 
