@@ -9,7 +9,7 @@ const holder = [];
 
 Voter.on('line', function(line) {
   const columns = line.split(',');
-  row.push({
+  holder.push({
     firstname: columns[0],
     lastname: columns[1],
     zipcode: columns[2],

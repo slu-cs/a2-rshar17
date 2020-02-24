@@ -2,27 +2,27 @@
 
 const mongoose = require('mongoose');
 const connect = require('./db');
-const Professor = require('./schema');
+const Voter = require('./schema');
 
 connect(); // To the database
 
 
 const queries = [
 
-  // What are names in alphabetical order?
-  Professor.find().sort('name'),
+  // How many registered voters live in the Canton zip code (13617)?
+  Voter.find().sort('name'),
 
-  // Who started most recently?
-  Professor.find().sort('-started').limit(1),
+  // What are the full names of all the registered voters whose first-name is STARR?
+  Voter.find().where('fistname').equals('STARR').get('firstname').get('lastname'),
 
-  // Who started in 2003?
-  Professor.find().where('started').equals(2003),
+  // How many people voted in the 2016 general election (GE16)?
+  Voter.find().where('started').equals(2003),
 
-  // Who teaches 362?
-  Professor.find().where('courses').in(362),
+  // What is the last-name that comes last in the county in alphabetical order?
+  Voter.find().where('courses').in(362),
 
-  // What are all the ranks?
-  Professor.distinct('rank')
+  // How many zip codes does the county contain?
+  Voter.distinct('rank')
 ];
 
 // Run the queries in parallel
