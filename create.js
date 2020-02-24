@@ -12,10 +12,10 @@ const arr = [];
 file.on('line', function(line){
   const data = line.split(',');
   arr.push(new Voter({
-  'firstname': data[0];
-  'lastname': data[1];
-  'zipcode': data[2];
-  'history': data[3];
+  'firstname': data[0],
+  'lastname': data[1],
+  'zipcode': data[2],
+  'history': data[3]
 }));
 });
 
