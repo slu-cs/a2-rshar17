@@ -4,16 +4,22 @@ const Voter = require('./schema');
 
 connect();
 
+const arr = [];
 
-const holder = [];
+const rows = connect.split('\n');
+const data = rows[0].split(',');
 
-Voter.on('line', function(line) {
-  const columns = line.split(',');
-  holder.push({
-    firstname: columns[0],
-    lastname: columns[1],
-    zipcode: columns[2],
-    history: columns[3]
 
-  });
-});
+
+
+
+
+
+
+
+
+// Reset the data
+mongoose.connection.dropDatabase()
+  .then(() => mongoose.connection.close())
+  .then(() => console.log('Database is ready.'))
+  .catch(error => console.error(error.stack));
