@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const connect = require('./db');
 const Voter = require('./schema');
-
-connect();
 const fs = require('fs');
 const readline = require('readline');
 const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 });
+connect();
+
 const arr = [];
 
 file.on('line', function(line){
@@ -30,7 +30,7 @@ file.on('line', function(line){
 // Reset the data
 file.on('close', function() {
 mongoose.connection.dropDatabase()
-  .then(() => Promise.all(arr.map(d => d.save())))
+  .then(() => Promise.all(arr.map(p => p.save())))
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
