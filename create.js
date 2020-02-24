@@ -25,13 +25,6 @@ for(const rows of data)
 
 
 
-
-
-
-
-
-
-
 // Reset the data
 mongoose.connection.dropDatabase()
   .then(() => arr.save())
