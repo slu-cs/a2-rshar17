@@ -13,7 +13,7 @@ const queries = [
   Voter.countDocuments().where('zipcode').equals('13617'),
 
   // What are the full names of all the registered voters whose first-name is STARR?
-  Voter.find().where('fistname').equals('STARR'),
+  Voter.find().where('firstname').equals('STARR'),
 
   // How many people voted in the 2016 general election (GE16)?
   Voter.find({'history': {$regex: '.*GE16.*'}}),
